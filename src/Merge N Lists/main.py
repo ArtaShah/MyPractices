@@ -9,7 +9,7 @@ def merge_two_lists(a:list,b:list):
             merged.append(b[j])
             j+=1
     merged.extend(a[i:])
-    merged.exted(b[j:])
+    merged.extend(b[j:])
     return merged
 
 def merge_n_sorted_lists(lists):
@@ -18,7 +18,6 @@ def merge_n_sorted_lists(lists):
     return divide_and_conquer(lists, 0, len(lists) - 1)
 
 def divide_and_conquer(lists, left, right):
-    # اگر فقط یک لیست داریم
     if left == right:
         return lists[left]
     mid = (left + right) // 2
