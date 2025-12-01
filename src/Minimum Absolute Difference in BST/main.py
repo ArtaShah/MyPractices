@@ -1,0 +1,19 @@
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def getMinimumDifference(self, root: TreeNode) -> int:
+        self.prev=None
+        self.minDiff= float('inf')
+        def inOrder(node):
+            if not node:
+                return
+            inOrder(node.left)
+            if self.prev is not None:
+                self.minDiff=min(self.minDiff,node.val - self.prev)
+            self.prev=node.val
+            inOrder(node.right)
+        inOrder(root)
+        return self.minDiff
